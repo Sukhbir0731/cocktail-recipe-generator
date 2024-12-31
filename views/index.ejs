@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Cocktail Recipe Finder</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍸 Random Cocktail Recipe Finder</h1>
+            <p>Discover new cocktails with just one click!</p>
+        </header>
+
+        <main>
+            <div class="button-container">
+                <a href="/random" class="button">Get Random Cocktail</a>
+            </div>
+
+            <% if (error) { %>
+                <div class="error">
+                    <%= error %>
+                </div>
+            <% } %>
+
+            <% if (cocktail) { %>
+                <div class="cocktail-card">
+                    <div class="cocktail-header">
+                        <img src="<%= cocktail.image %>" alt="<%= cocktail.name %>" class="cocktail-image">
+                        <h2><%= cocktail.name %></h2>
+                    </div>
+
+                    <div class="cocktail-details">
+                        <div class="detail-item">
+                            <strong>Category:</strong> <%= cocktail.category %>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Glass Type:</strong> <%= cocktail.glass %>
+                        </div>
+                    </div>
+
+                    <div class="ingredients">
+                        <h3>Ingredients:</h3>
+                        <ul>
+                            <% cocktail.ingredients.forEach(function(ingredient) { %>
+                                <li>
+                                    <%= ingredient.measure %> <%= ingredient.name %>
+                                </li>
+                            <% }); %>
+                        </ul>
+                    </div>
+
+                    <div class="instructions">
+                        <h3>Instructions:</h3>
+                        <p><%= cocktail.instructions %></p>
+                    </div>
+                </div>
+            <% } %>
+        </main>
+
+        <footer>
+            <p>Data provided by <a href="https://www.thecocktaildb.com" target="_blank">TheCocktailDB</a></p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+    "name": "cocktail-recipe-finder",
+    "version": "1.0.0",
+    "description": "A web application that provides random cocktail recipes using CocktailDB API",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js",
+      "dev": "nodemon app.js"
+    },
+    "dependencies": {
+      "axios": "^1.4.0",
+      "express": "^4.18.2",
+      "ejs": "^3.1.9"
+    },
+    "devDependencies": {
+      "nodemon": "^2.0.22"
+    }
+  }
+  
